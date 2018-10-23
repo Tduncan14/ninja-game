@@ -1,12 +1,30 @@
-/// Setting up the canvas for the website
+// waits for the image and so forth to load.. once the load finish then it calls the function to run
+ var x = 0;
+ var y = 40;
 
+var image = new Image();
+image.src='images/nanonaut.png';
+
+window.addEventListener('load',begin);
+
+// A variable to hold my image
+
+
+
+/// Setting up the canvas for the website
 var canvas=document.createElement('canvas');
 canvas.width=800;
 canvas.height=600;
-document.body.appendChild(canvas);
+
 
 // coloring the canvas
-var canvass =canvas.getContext('2d');
-canvass.fillStyle='green';
-canvass.fillRect(10,10,30,30);
-document.body.appendChild(canvass);
+function begin (){
+/*var c =canvas.getContext('2d');
+c.fillStyle='green';
+// setting the position  of the canvasS
+c.fillRect(10,10,30,30);
+c.drawImage(image, 20, 40);
+*/
+window.requestAnimationFrame(loop);
+}
+document.body.appendChild(canvas);
