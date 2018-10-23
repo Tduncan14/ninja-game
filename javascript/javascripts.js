@@ -13,8 +13,10 @@ window.addEventListener('load',begin);
 
 /// Setting up the canvas for the website
 var canvas=document.createElement('canvas');
-canvas.width=800;
-canvas.height=600;
+canvas.width=1000;
+canvas.height=1000;
+
+var c =canvas.getContext('2d');
 
 
 // coloring the canvas
@@ -26,5 +28,14 @@ c.fillRect(10,10,30,30);
 c.drawImage(image, 20, 40);
 */
 window.requestAnimationFrame(loop);
+}
+
+function loop () {
+    // drawing code
+    c.clearRect(0,0,1000,1000)
+    c.drawImage(image, x, y);
+    x = x + 1;
+    window.requestAnimationFrame(loop);
+
 }
 document.body.appendChild(canvas);
