@@ -59,8 +59,13 @@ function update(){
 
 //Drawing
 function draw() {
-    c.clearRect(0,0,canvasWidth,canvasHeight);
+   c.fillStyle = 'lightSkyBlue';
+   // the coordinates for the sky
+   c.fillRect(0,0,canvasWidth, groundY-40);
 
+   // drawing the ground
+   c.fillStyle = 'forestGreen';
+   c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
     // draw the player
 
     c.drawImage(nanonautImage,nanonautX,nanonautY);
