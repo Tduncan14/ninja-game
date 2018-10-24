@@ -38,7 +38,11 @@ function start () {
     window.requestAnimationFrame(mainLoop);
 }
 /// MainLOOP
-
+ function mainLoop(){
+     update();
+     draw();
+     window.requestAnimationFrame(mainLoop);
+ }
 
 
 
@@ -47,7 +51,17 @@ function start () {
 
 
 //Updating
+function update(){
+
+}
 
 
 
 //Drawing
+function draw() {
+    c.clearRect(0,0,canvasWidth,canvasHeight);
+
+    // draw the player
+
+    c.drawImage(nanonautImage,nanonautX,nanonautY);
+}
