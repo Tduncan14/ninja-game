@@ -11,7 +11,14 @@ const groundY = 540;
 
 
 // SETUP
-
+// Creates the canvas
+var canvas = document.createElement('canvas');
+// allows you to draw on the canvas
+var c = canvas.getContext('2d');
+// attaching to the canvas
+canvas.width = canvasWidth;
+// attaching to canvas height
+canvas.height = canvasHeight;
 
 
 /// MainLOOP
