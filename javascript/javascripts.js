@@ -19,11 +19,13 @@ var c = canvas.getContext('2d');
 canvas.width = canvasWidth;
 // attaching to canvas height
 canvas.height = canvasHeight;
-// appending the created element to the child of the body
 
+// draws the background
 c.fillRect(0,0,canvasWidth,groundY-40);
+var backgroundImage = new Image();
+c.drawImage(background)
 
-
+// appending the created element to the child of the body
 document.body.appendChild(canvas);
 
 // adding the image with the image object
