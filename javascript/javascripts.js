@@ -23,6 +23,7 @@ canvas.height = canvasHeight;
 // draws the background
 c.fillRect(0,0,canvasWidth,groundY-40);
 var backgroundImage = new Image();
+backgroundImage.src ="images/background.png";
 c.drawImage(backgroundImage,0,-210);
 
 // appending the created element to the child of the body
