@@ -3,8 +3,11 @@
 const canvasWidth = 800;
 //height of of the canvas
 const canvasHeight = 600;
-//  The height of the character
+//  The height of the character229
+const nanonautHeight = 229;
+//width of the character
 const nanonautWidth = 181;
+
 // The width of the character
 const groundY = 540;
 
@@ -61,6 +64,11 @@ function start () {
 
 //Updating
 function update(){
+
+    nanonautY = nanonautY +1;
+    if(nanonautY >(groundY-nanonautHeight)){
+        nanonautY = groundY-nanonautHeight;
+    }
 
 }
 
