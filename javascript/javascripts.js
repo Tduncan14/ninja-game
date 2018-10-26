@@ -75,7 +75,7 @@ function draw() {
    
 
    // drawing the ground
- //  c.fillStyle = 'forestGreen';
+   c.fillStyle = 'forestGreen';
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
     // draw the player
 
