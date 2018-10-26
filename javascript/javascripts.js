@@ -21,10 +21,7 @@ canvas.width = canvasWidth;
 canvas.height = canvasHeight;
 
 // draws the background
-c.fillRect(0,0,canvasWidth,groundY-40);
-var backgroundImage = new Image();
-backgroundImage.src ="images/background.png";
-c.drawImage(backgroundImage,0,-210);
+
 
 // appending the created element to the child of the body
 document.body.appendChild(canvas);
@@ -37,6 +34,11 @@ nanonautImage.src ='images/nanonaut.png';
 
 var nanonautX =50;
 var nanonautY=40;
+
+
+var backgroundImage = new Image();
+backgroundImage.src ="images/background.png";
+
 
 //Once the image is loaded run and call the function
 window.addEventListener('load', start);
@@ -66,12 +68,14 @@ function update(){
 
 //Drawing
 function draw() {
-   c.fillStyle = 'lightSkyBlue';
+  // c.fillStyle = 'lightSkyBlue';
    // the coordinates for the sky
    c.fillRect(0,0,canvasWidth, groundY-40);
+   c.drawImage(backgroundImage,0,-210);
+   
 
    // drawing the ground
-   c.fillStyle = 'forestGreen';
+ //  c.fillStyle = 'forestGreen';
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
     // draw the player
 
