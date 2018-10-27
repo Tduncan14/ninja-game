@@ -11,6 +11,9 @@ const nanonautWidth = 181;
 // The width of the character
 const groundY = 540;
 
+var nanonautYacceleration = 1;
+
+
 
 
 // SETUP
