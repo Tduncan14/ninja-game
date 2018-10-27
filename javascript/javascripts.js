@@ -18,6 +18,12 @@ var nanonautJumpSpeed = 20;
 // adding movement
 var nanonautXSpeed = 5;
 // create a scrolling background and with
+var backgroundWidth=1000;
+
+// how many frames per row
+var nanonautNrFramesPerRow = 5;
+var nanonautNrAnimationFrames = 7;
+
 
 
 
@@ -37,6 +43,7 @@ var nanonautYspeed =0;
 var spaceKeyIsPressed =false;
 var nanonautIsInTheAir = false;
 
+var nanonautFramenr = 0;
 // for the game can scroll
 
 var cameraX =0;
@@ -64,10 +71,10 @@ document.body.appendChild(canvas);
 
 var nanonautImage= new Image();
 // adding the source to it
-nanonautImage.src ='images/nanonaut.png';
+nanonautImage.src ='images/animatedNanonaut.png';
 
-var nanonautX =50;
-var nanonautY=40;
+var nanonautX =canvasWidth / 2;
+var nanonautY=groundY -nanonautHeight;
 
 
 var backgroundImage = new Image();
@@ -145,7 +152,9 @@ function draw() {
   // c.fillStyle = 'lightSkyBlue';
    // the coordinates for the sky
    c.fillRect(0,0,canvasWidth, groundY-40);
-   c.drawImage(backgroundImage,0 -cameraX,-210);
+   var backgroundX = - (cameraX % backgroundWidth);
+   c.drawImage(backgroundImage,backgroundX,-210);
+   c.drawImage(backgroundImage,backgroundX + backgroundWidth,-210);
    
 
    // drawing the ground
