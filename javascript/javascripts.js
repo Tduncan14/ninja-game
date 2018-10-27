@@ -51,6 +51,7 @@ backgroundImage.src ="images/background.png";
 
 
 //Once the image is loaded run and call the function
+window.addEventListener('keydown', onKeyDown);
 window.addEventListener('load', start);
 
 function start () {
