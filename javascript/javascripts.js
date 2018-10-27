@@ -57,6 +57,7 @@ backgroundImage.src ="images/background.png";
 
 //Once the image is loaded run and call the function
 window.addEventListener('keydown', onKeyDown);
+window.addEventListener('keyup', onKeyUp);
 window.addEventListener('load', start);
 
 
@@ -80,6 +81,10 @@ if(event.keyCode === spaceKeyCode){
     spaceKeyIsPressed = true;
 }
   
+}
+
+function onKeyUp(event){
+    
 }
 
 //Updating
