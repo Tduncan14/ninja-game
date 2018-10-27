@@ -11,7 +11,11 @@ const nanonautWidth = 181;
 // The width of the character
 const groundY = 540;
 
-const spaceKeyCode = 32;
+const spaceKeyCode = 32; 
+
+// vertical jumping speed
+
+const nanonautJumpSpeed = 20;
 
 
 
