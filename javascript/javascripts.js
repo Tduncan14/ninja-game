@@ -1,21 +1,24 @@
 // Constants
 // width of the canvas
-const canvasWidth = 800;
+var canvasWidth = 800;
 //height of of the canvas
-const canvasHeight = 600;
+var canvasHeight = 600;
 //  The height of the character229
-const nanonautHeight = 229;
+var nanonautHeight = 229;
 //width of the character
-const nanonautWidth = 181;
+var nanonautWidth = 181;
 
 // The width of the character
-const groundY = 540;
+var groundY = 540;
 
 const spaceKeyCode = 32; 
 
 // vertical jumping speed
+var nanonautJumpSpeed = 20;
+// adding movement
+var nanonautXSpeed = 5;
+// create a scrolling background and with
 
-const nanonautJumpSpeed = 20;
 
 
 
@@ -31,10 +34,20 @@ var c = canvas.getContext('2d');
 var nanonautYacceleration = 1;
 // nanonaut speed
 var nanonautYspeed =0;
-// checks to see if the ninja is still in the aire 
+var spaceKeyIsPressed =false;
 var nanonautIsInTheAir = false;
 
-var spaceKeyIsPressed =false;
+// for the game can scroll
+
+var cameraX =0;
+var cameraY = 0;
+
+
+
+
+// checks to see if the ninja is still in the aire 
+
+
 
 // attaching to the canvas
 canvas.width = canvasWidth;
@@ -64,6 +77,7 @@ backgroundImage.src ="images/background.png";
 //Once the image is loaded run and call the function
 window.addEventListener('keydown', onKeyDown);
 window.addEventListener('keyup', onKeyUp);
+
 window.addEventListener('load', start);
 
 
@@ -85,38 +99,42 @@ function start () {
 function onKeyDown(event){
 if(event.keyCode === spaceKeyCode){
     spaceKeyIsPressed = true;
+    console.log("working");
 }
-  
 }
 
 function onKeyUp(event){
     if(event.keyCode === spaceKeyCode){
         spaceKeyIsPressed = false;
+        console.log("not working");
     }
 }
 
 //Updating
 function update(){
+nanonautX = nanonautX + nanonautXSpeed;
+      
+
+if(spaceKeyIsPressed && !nanonautIsInTheAir){
+    nanonautYspeed =- nanonautJumpSpeed;
+    nanonautIsInTheAir = true;
+
+}
+ 
     nanonautY = nanonautY + nanonautYspeed;
     nanonautYspeed = nanonautYspeed + nanonautYacceleration;
-// allows the ninja to jump
-    if(spaceKeyIsPressed){
-        nanonautYspeed = -nanonautJumpSpeed;
-    
-    }
-    
-    if(spaceKeyIsPressed && !nanonautIsInTheAir) {
-        nanonautYspeed = -nanonautJumpSpeed;
-        nanonautIsInTheAir = true;
-    }
-
     nanonautY = nanonautY +1;
-    if(nanonautY >(groundY-nanonautHeight)){
+// allows the ninja to jump
+
+
+    if(nanonautY > (groundY-nanonautHeight)){
         nanonautY = groundY-nanonautHeight;
         nanonautYspeed=0;
         nanonautIsInTheAir = false;
+        console.log("show false"); 
     }
    
+   cameraX = nanonautX -150;
 
 }
 
@@ -127,7 +145,7 @@ function draw() {
   // c.fillStyle = 'lightSkyBlue';
    // the coordinates for the sky
    c.fillRect(0,0,canvasWidth, groundY-40);
-   c.drawImage(backgroundImage,0,-210);
+   c.drawImage(backgroundImage,0 -cameraX,-210);
    
 
    // drawing the ground
@@ -135,5 +153,5 @@ function draw() {
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
     // draw the player
 
-    c.drawImage(nanonautImage,nanonautX,nanonautY);
+    c.drawImage(nanonautImage,nanonautX-cameraX,nanonautY-cameraY);
 }
