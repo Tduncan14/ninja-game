@@ -11,6 +11,8 @@ const nanonautWidth = 181;
 // The width of the character
 const groundY = 540;
 
+const spaceKeyCode = 32;
+
 
 
 
@@ -25,6 +27,9 @@ var c = canvas.getContext('2d');
 var nanonautYacceleration = 1;
 // nanonaut speed
 var nanonautYspeed =0;
+
+var spaceKeyIsPressed =false;
+
 // attaching to the canvas
 canvas.width = canvasWidth;
 // attaching to canvas height
@@ -71,10 +76,9 @@ function start () {
 // Player input
 
 function onKeyDown(event){
-if(event.keyCode === 32){
-    console.log("spacebar is pressed");
+if(event.keyCode === spaceKeyCode){
+    spaceKeyIsPressed = true;
 }
-    console.log(event.keyCode);
   
 }
 
