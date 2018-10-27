@@ -102,9 +102,13 @@ function update(){
 // allows the ninja to jump
     if(spaceKeyIsPressed){
         nanonautYspeed = -nanonautJumpSpeed;
-        nanonautIsInTheAir= true;
+    
     }
-
+    
+    if(spaceKeyIsPressed && !nanonautIsInTheAir) {
+        nanonautYspeed = -nanonautJumpSpeed;
+        nanonautIsInTheAir = true;
+    }
 
     nanonautY = nanonautY +1;
     if(nanonautY >(groundY-nanonautHeight)){
