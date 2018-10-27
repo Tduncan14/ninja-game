@@ -54,6 +54,10 @@ backgroundImage.src ="images/background.png";
 window.addEventListener('keydown', onKeyDown);
 window.addEventListener('load', start);
 
+function onKeyDown(){
+    console.log(event.keyCode);
+}
+
 function start () {
     window.requestAnimationFrame(mainLoop);
 }
