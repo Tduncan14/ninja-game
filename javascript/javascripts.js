@@ -21,8 +21,10 @@ const groundY = 540;
 var canvas = document.createElement('canvas');
 // allows you to draw on the canvas
 var c = canvas.getContext('2d');
-// speed increase from falling sky
+// speed increase from falling sky suppose to increase each time
 var nanonautYacceleration = 1;
+// nanonaut speed
+var nanonautYspeed =0;
 // attaching to the canvas
 canvas.width = canvasWidth;
 // attaching to canvas height
@@ -69,11 +71,14 @@ function start () {
 
 //Updating
 function update(){
+    nanonautY = nanonautY + nanonautYspeed;
+    nanonautYspeed = nanonautYspeed + nanonautYacceleration;
 
     nanonautY = nanonautY +1;
     if(nanonautY >(groundY-nanonautHeight)){
         nanonautY = groundY-nanonautHeight;
     }
+   
 
 }
 
