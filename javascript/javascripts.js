@@ -162,5 +162,7 @@ function draw() {
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
     // draw the player
 
-    c.drawImage(nanonautImage,nanonautX-cameraX,nanonautY-cameraY);
+    var nanonautSpriteSheetRow = Math.floor(nanonautFramenr/nanonautNrFramesPerRow);
+    var nanonautSpriteColumn = nanonautFramenr % nanonautNrFramesPerRow;
+    var nanonautSpriteSheetX = nanonautSpriteSheetColumn *nanonautWidth;
 }
