@@ -84,7 +84,9 @@ if(event.keyCode === spaceKeyCode){
 }
 
 function onKeyUp(event){
-    
+    if(event.keyCode === spaceKeyCode){
+        spaceKeyIsPressed = false;
+    }
 }
 
 //Updating
