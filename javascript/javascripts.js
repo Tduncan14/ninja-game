@@ -11,7 +11,7 @@ const nanonautWidth = 181;
 // The width of the character
 const groundY = 540;
 
-var nanonautYacceleration = 1;
+
 
 
 
@@ -21,6 +21,8 @@ var nanonautYacceleration = 1;
 var canvas = document.createElement('canvas');
 // allows you to draw on the canvas
 var c = canvas.getContext('2d');
+// speed increase from falling sky
+var nanonautYacceleration = 1;
 // attaching to the canvas
 canvas.width = canvasWidth;
 // attaching to canvas height
