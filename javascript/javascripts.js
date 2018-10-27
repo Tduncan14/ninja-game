@@ -31,6 +31,8 @@ var c = canvas.getContext('2d');
 var nanonautYacceleration = 1;
 // nanonaut speed
 var nanonautYspeed =0;
+// checks to see if the ninja is still in the aire 
+var nanonautIsInTheAir = false;
 
 var spaceKeyIsPressed =false;
 
@@ -97,10 +99,18 @@ function onKeyUp(event){
 function update(){
     nanonautY = nanonautY + nanonautYspeed;
     nanonautYspeed = nanonautYspeed + nanonautYacceleration;
+// allows the ninja to jump
+    if(spaceKeyIsPressed){
+        nanonautYspeed = -nanonautJumpSpeed;
+        nanonautIsInTheAir= true;
+    }
+
 
     nanonautY = nanonautY +1;
     if(nanonautY >(groundY-nanonautHeight)){
         nanonautY = groundY-nanonautHeight;
+        nanonautYspeed=0;
+        nanonautIsInTheAir = false;
     }
    
 
