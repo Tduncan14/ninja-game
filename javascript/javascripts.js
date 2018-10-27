@@ -54,9 +54,6 @@ backgroundImage.src ="images/background.png";
 window.addEventListener('keydown', onKeyDown);
 window.addEventListener('load', start);
 
-function onKeyDown(){
-    console.log(event.keyCode);
-}
 
 function start () {
     window.requestAnimationFrame(mainLoop);
@@ -73,6 +70,13 @@ function start () {
 
 // Player input
 
+function onKeyDown(event){
+if(event.keyCode === 32){
+    console.log("spacebar is pressed");
+}
+    console.log(event.keyCode);
+  
+}
 
 //Updating
 function update(){
