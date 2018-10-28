@@ -165,4 +165,7 @@ function draw() {
     var nanonautSpriteSheetRow = Math.floor(nanonautFramenr/nanonautNrFramesPerRow);
     var nanonautSpriteColumn = nanonautFramenr % nanonautNrFramesPerRow;
     var nanonautSpriteSheetX = nanonautSpriteSheetColumn *nanonautWidth;
+    var nanonautSpriteSheetY = nanonautSpriteSheetRow * nanonautHeight;
+    c.drawImage(nanonautImage,nanonautSpriteSheetX,nanonautSpriteSheetY);
+
 }
