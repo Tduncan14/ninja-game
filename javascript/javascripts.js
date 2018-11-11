@@ -55,7 +55,7 @@ bushImage.src = "images/bush1.png";
 var bushImage2 = new Image();
 bushImage2.src = "images/bush2.png";
 
-var bushData = generateFunction();
+var bushData = generateBushes();
 
 var nanonautFramenr = 0;
 
@@ -105,6 +105,13 @@ window.addEventListener('load', start);
 
 function start () {
     window.requestAnimationFrame(mainLoop);
+
+
+}
+
+function generateBushes (){
+    var generatedBushData = [];
+    return generatedBushData;
 }
 /// MainLOOP
  function mainLoop(){
