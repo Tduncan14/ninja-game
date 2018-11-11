@@ -46,7 +46,9 @@ var nanonautYacceleration = 1;
 // nanonaut speed
 var nanonautYspeed =0;
 var spaceKeyIsPressed =false;
-var nanonautIsInTheAir = false;
+var nanonautIsInTheAir = false; 
+var bushXCoordinates = [550,750,1000,1200];
+
 
 var nanonautFramenr = 0;
 
@@ -87,6 +89,7 @@ backgroundImage.src ="images/background.png";
 
 var bushImage = new Image();
 bushImage.src = "images/bush1.png";
+
 
 
 //Once the image is loaded run and call the function
@@ -168,24 +171,34 @@ if(spaceKeyIsPressed && !nanonautIsInTheAir){
  }
 } 
 
+    
 
 
 //Drawing
 function draw() {
   // c.fillStyle = 'lightSkyBlue';
    // the coordinates for the sky
+
    c.fillRect(0,0,canvasWidth, groundY-40);
    var backgroundX = - (cameraX % backgroundWidth);
    c.drawImage(backgroundImage,backgroundX,-210);
    c.drawImage(backgroundImage,backgroundX + backgroundWidth,-210);
 
    // drawing the bush code
-  c.drawImage(bushImage,550, groundY -100);
+
+
+ 
    // drawing the ground
    c.fillStyle = 'forestGreen';
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
+   
+   for(let i = 0; i < bushXCoordinates.length; i++){
+    c.drawImage(bushImage ,bushXCoordinates[i] - cameraX, groundY -100 -cameraY);
+}
+
 
     // draw the player
+    
 
     var nanonautSpriteSheetRow = Math.floor(nanonautFramenr/nanonautNrFramesPerRow);
     var nanonautSpriteSheetColumn = nanonautFramenr % nanonautNrFramesPerRow;
@@ -193,6 +206,9 @@ function draw() {
     var nanonautSpriteSheetY = nanonautSpriteSheetRow * nanonautHeight;
     c.drawImage(nanonautImage,nanonautSpriteSheetX,nanonautSpriteSheetY,nanonautWidth,nanonautHeight,nanonautX-cameraX,nanonautY-cameraY,
     nanonautWidth,nanonautHeight);
+
+
+
 
 
 }
