@@ -55,16 +55,7 @@ bushImage.src = "images/bush1.png";
 var bushImage2 = new Image();
 bushImage2.src = "images/bush2.png";
 
-var bushData = [{
-    x: 550,
-    y: 100,
-    image:bushImage
-},
-{
-x:750,
-y:90,
-image:bushImage2
-}];
+var bushData = generateFunction();
 
 var nanonautFramenr = 0;
 
@@ -200,6 +191,10 @@ function draw() {
    // drawing the bush code
    for(let i = 0; i < bushData.length; i++){
     c.drawImage(bushData[i].image, bushData[i].x - cameraX, groundY - bushData[i].y - cameraY);
+
+    if((bushData[i].x - cameraX) < -canvasWidth){
+        bushData[i].x += (2*canvasWidth) + 150;
+    }
 }
 
  
