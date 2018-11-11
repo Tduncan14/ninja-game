@@ -86,7 +86,7 @@ var backgroundImage = new Image();
 backgroundImage.src ="images/background.png";
 
 var bushImage = new Image();
-bushImage.src = "images/bush1.png"
+bushImage.src = "images/bush1.png";
 
 
 //Once the image is loaded run and call the function
@@ -178,11 +178,13 @@ function draw() {
    var backgroundX = - (cameraX % backgroundWidth);
    c.drawImage(backgroundImage,backgroundX,-210);
    c.drawImage(backgroundImage,backgroundX + backgroundWidth,-210);
-   
 
+   // drawing the bush code
+  c.drawImage(bushImage,550, groundY -100);
    // drawing the ground
    c.fillStyle = 'forestGreen';
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
+
     // draw the player
 
     var nanonautSpriteSheetRow = Math.floor(nanonautFramenr/nanonautNrFramesPerRow);
