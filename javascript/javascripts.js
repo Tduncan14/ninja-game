@@ -55,7 +55,16 @@ bushImage.src = "images/bush1.png";
 var bushImage2 = new Image();
 bushImage2.src = "images/bush2.png";
 
-var bushData = generateBushes();
+var bushData = [{
+    x: 550,
+    y: 100,
+    image:bushImage
+},
+{
+x:750,
+y:90,
+image:bushImage2
+}];
 
 var nanonautFramenr = 0;
 
@@ -105,13 +114,6 @@ window.addEventListener('load', start);
 
 function start () {
     window.requestAnimationFrame(mainLoop);
-
-
-}
-
-function generateBushes (){
-    var generatedBushData = [];
-    return generatedBushData;
 }
 /// MainLOOP
  function mainLoop(){
@@ -200,7 +202,7 @@ function draw() {
     c.drawImage(bushData[i].image, bushData[i].x - cameraX, groundY - bushData[i].y - cameraY);
 
     if((bushData[i].x - cameraX) < -canvasWidth){
-        bushData[i].x += (2*canvasWidth) + 150;
+        bushData[i].x += (2*canvasWidth)
     }
 }
 
