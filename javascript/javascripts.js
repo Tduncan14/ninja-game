@@ -25,6 +25,11 @@ var nanonautNrFramesPerRow = 5;
 var nanonautNrAnimationFrames = 7;
 
 
+// animation speed
+var nanonautAnimationSpeed = 4;
+
+
+
 
 
 
@@ -44,15 +49,15 @@ var spaceKeyIsPressed =false;
 var nanonautIsInTheAir = false;
 
 var nanonautFramenr = 0;
+
+var gameFrameCounter = 0;
+
 // for the game can scroll
 
 var cameraX =0;
 var cameraY = 0;
 
 
-
-
-// checks to see if the ninja is still in the aire 
 
 
 
@@ -67,7 +72,7 @@ canvas.height = canvasHeight;
 // appending the created element to the child of the body
 document.body.appendChild(canvas);
 
-// adding the image with the image object
+// adding the image with the image object section
 
 var nanonautImage= new Image();
 // adding the source to it
@@ -79,6 +84,9 @@ var nanonautY=groundY -nanonautHeight;
 
 var backgroundImage = new Image();
 backgroundImage.src ="images/background.png";
+
+var bushImage = new Image();
+bushImage.src = "images/bush1.png"
 
 
 //Once the image is loaded run and call the function
@@ -143,7 +151,22 @@ if(spaceKeyIsPressed && !nanonautIsInTheAir){
    
    cameraX = nanonautX -150;
 
-}
+   //update the drawings
+ /*  nanonautFramenr = nanonautFramenr + 1;
+   if(nanonautFramenr >= nanonautNrAnimationFrames){
+       nanonautFramenr = 0;
+   }
+  */
+ gameFrameCounter = gameFrameCounter + 1;
+
+ if((gameFrameCounter % nanonautAnimationSpeed) === 0){
+     nanonautFramenr = nanonautFramenr + 1;
+
+ if(nanonautFramenr >= nanonautNrAnimationFrames){
+     nanonautFramenr = 0;
+ }
+ }
+} 
 
 
 
@@ -163,9 +186,11 @@ function draw() {
     // draw the player
 
     var nanonautSpriteSheetRow = Math.floor(nanonautFramenr/nanonautNrFramesPerRow);
-    var nanonautSpriteColumn = nanonautFramenr % nanonautNrFramesPerRow;
+    var nanonautSpriteSheetColumn = nanonautFramenr % nanonautNrFramesPerRow;
     var nanonautSpriteSheetX = nanonautSpriteSheetColumn *nanonautWidth;
     var nanonautSpriteSheetY = nanonautSpriteSheetRow * nanonautHeight;
-    c.drawImage(nanonautImage,nanonautSpriteSheetX,nanonautSpriteSheetY);
+    c.drawImage(nanonautImage,nanonautSpriteSheetX,nanonautSpriteSheetY,nanonautWidth,nanonautHeight,nanonautX-cameraX,nanonautY-cameraY,
+    nanonautWidth,nanonautHeight);
+
 
 }
