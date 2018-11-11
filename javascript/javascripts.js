@@ -47,10 +47,18 @@ var nanonautYacceleration = 1;
 var nanonautYspeed =0;
 var spaceKeyIsPressed =false;
 var nanonautIsInTheAir = false; 
+
+
+var bushImage = new Image();
+bushImage.src = "images/bush1.png";
+
+var bushImage2 = new Image();
+bushImage2.src = "images/bush2.png";
+
 var bushData = [{
     x: 550,
     y: 100,
-    image: bushImage
+    image:bushImage
 },
 {
 x:750,
@@ -95,11 +103,6 @@ var nanonautY=groundY -nanonautHeight;
 var backgroundImage = new Image();
 backgroundImage.src ="images/background.png";
 
-var bushImage = new Image();
-bushImage.src = "images/bush1.png";
-
-var bushImage2 = new Image();
-bushImage2.src = "images/bush2.png";
 
 
 //Once the image is loaded run and call the function
@@ -195,16 +198,16 @@ function draw() {
    c.drawImage(backgroundImage,backgroundX + backgroundWidth,-210);
 
    // drawing the bush code
-
+   for(let i = 0; i < bushData.length; i++){
+    c.drawImage(bushData[i].image, bushData[i].x - cameraX, groundY - bushData[i].y - cameraY);
+}
 
  
    // drawing the ground
    c.fillStyle = 'forestGreen';
    c.fillRect(0,groundY-40,canvasWidth,canvasHeight -groundY + 40);
 
-   for(let i = 0; i < bushXCoordinates.length; i++){
-    c.drawImage(bushImage ,bushXCoordinates[i] - cameraX, groundY -100 -cameraY);
-}
+ 
 
 
     // draw the player
@@ -219,6 +222,6 @@ function draw() {
 
 
 
-
+   
 
 }
